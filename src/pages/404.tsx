@@ -1,15 +1,18 @@
-import React from 'react'
-import { FrownOutlined } from '@ant-design/icons'
-import { Page } from 'components'
-import styles from './404.less'
+import { Button, Result } from 'antd';
+import React from 'react';
+import { history } from 'umi';
 
-const Error = () => (
-  <Page inner>
-    <div className={styles.error}>
-      <FrownOutlined />
-      <h1>404 Not Found</h1>
-    </div>
-  </Page>
-)
+const NoFoundPage: React.FC = () => (
+  <Result
+    status="404"
+    title="404"
+    subTitle="Sorry, the page you visited does not exist."
+    extra={
+      <Button type="primary" onClick={() => history.push('/')}>
+        Back Home
+      </Button>
+    }
+  />
+);
 
-export default Error
+export default NoFoundPage;
